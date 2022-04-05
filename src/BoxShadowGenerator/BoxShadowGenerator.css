@@ -28,3 +28,20 @@
 .copyCss:focus {
     box-shadow: 0px 0px 4px 5px rgba(151, 4, 170, 0.40);
 }
+
+.form-range::-webkit-slider-thumb {
+    background-color: rgb(151, 4, 170);
+}
+
+.form-range:focus::-webkit-slider-thumb {
+    box-shadow:0 0 0 1px rgba(151, 4, 170),0 0 0 .25rem rgba(151, 4, 170,.25);
+}
+
+.form-range::-webkit-slider-thumb:active{
+    background-color:rgb(151, 4, 170, .4)
+}
+
+.border {
+    border-radius: 5px;
+    border-color: rgba(151, 4, 170)!important;
+}

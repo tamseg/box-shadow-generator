@@ -5,8 +5,21 @@ import './BoxShadowGenerator.css';
 
 const BoxShadowGenerator = () => {
 
+    function hexToRgbA(hex){
+        var c;
+        if (/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)) {
+            c= hex.substring(1).split('');
+            if (c.length == 3){
+                c= [c[0], c[0], c[1], c[1], c[2], c[2]];
+            }
+            c= '0x'+c.join('');
+            return [(c>>16)&255, (c>>8)&255, c&255].join(',');
+        }
+    }
+
     const [boxShadow, setBoxShadow] = useState({
         boxColor: '#000000',
+        shadowColor: '0, 0, 0',
         inset: false,
         x: 0,
         y: 0,
@@ -28,7 +41,7 @@ const BoxShadowGenerator = () => {
                     ${`${boxShadow.y}px`}
                     ${`${boxShadow.blurRadius}px`}
                     ${`${boxShadow.spreadRadius}px`}
-                    rgba(0, 0, 0, ${`${boxShadow.opacity}`});
+                    rgba(${`${boxShadow.shadowColor}`}, ${`${boxShadow.opacity}`});
     `;
     
     const shadowVal = Box.componentStyle.rules;
@@ -55,22 +68,31 @@ const BoxShadowGenerator = () => {
             </div>
             <div className='col-md-5'>
                 <div className='row g-3'>
-                    <div className='col-12'>
-                        <label htmlFor="boxColor" className="form-label">Box Color</label>
-                        <input type="color"
-                               className="form-control form-control-color"
-                               id="boxColor"
-                               value={boxShadow.boxColor}
-                               onChange={(event) => setBoxShadow({...boxShadow, boxColor: event.target.value})}
-                        />
+                    <div className='col-12 mt-2 d-flex justify-content-center'>
+                        <label htmlFor="boxColor" className="form-label d-flex flex-column me-4 ps-5">Box Color
+                            <input type="color"
+                                className="form-control form-control-color"
+                                id="boxColor"
+                                value={boxShadow.boxColor}
+                                onChange={(event) => setBoxShadow({...boxShadow, boxColor: event.target.value})}
+                            />
+                        </label>
+                        <label htmlFor="boxColor" className="form-label d-flex flex-column ms-4">Shadow Color
+                            <input type="color"
+                                className="form-control form-control-color"
+                                id="boxColor"
+                                value={boxShadow.shadowColor.prev}
+                                onChange={(event) => setBoxShadow({...boxShadow, shadowColor: hexToRgbA(event.target.value)})}
+                            />
+                        </label>
                     </div>
-                    <div className="form-check col-12 ms-2">
-                        <input className="form-check-input"
+                    <div className="form-check col-12 ms-2 d-flex justify-content-center">
+                        <input className="form-check-input me-2"
                                type="checkbox"
                                id="inset-outset"
                                onChange={(event) => setBoxShadow({...boxShadow, inset: !boxShadow.inset})}
                                checked={boxShadow.inset ? true : false} />
-                        <label className="form-check-label" htmlFor="inset-outset">
+                        <label className="form-check-label me-1" htmlFor="inset-outset">
                             Inset
                         </label>
                     </div>
