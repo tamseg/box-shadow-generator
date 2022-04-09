@@ -18,7 +18,7 @@ const BoxShadowGenerator = () => {
     }
 
     const [boxShadow, setBoxShadow] = useState({
-        boxColor: '#000000',
+        boxColor: '#9704AA',
         shadowColor: '0, 0, 0',
         inset: false,
         x: 0,
@@ -67,7 +67,7 @@ const BoxShadowGenerator = () => {
                 </div>
             </div>
             <div className='col-md-5'>
-                <div className='row g-3'>
+                <div className='row g-3 shadowPicker'>
                     <div className='col-12 mt-2 d-flex justify-content-center'>
                         <label htmlFor="boxColor" className="form-label d-flex flex-column me-4 ps-5">Box Color
                             <input type="color"

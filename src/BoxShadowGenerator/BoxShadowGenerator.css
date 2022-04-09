@@ -45,3 +45,7 @@
     border-radius: 5px;
     border-color: rgba(151, 4, 170)!important;
 }
+
+.shadowPicker {
+    font-weight: 500;
+}

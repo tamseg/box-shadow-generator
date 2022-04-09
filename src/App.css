@@ -36,3 +36,8 @@
     transform: rotate(360deg);
   }
 }
+
+.mainHeader {
+  font-weight: 600;
+  color: rgb(43, 37, 37)
+}
