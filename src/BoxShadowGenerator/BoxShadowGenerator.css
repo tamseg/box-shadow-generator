@@ -1,6 +1,12 @@
 .form-check-input:checked {
     background-color: rgb(151, 4, 170);
     box-shadow: 0 0 5px 5px rgba(151, 4, 170, 0.3);
+    border-color: rgb(151, 4, 170);
+}
+
+.form-check-input:focus {
+    box-shadow: 0px 0px 4px 5px rgba(151, 4, 170, 0.40);
+    border-color: rgb(151, 4, 170);
 }
 
 .copyCss {
@@ -15,7 +21,7 @@
 
 .copyCss:hover {
     background-color: rgb(151, 4, 170);
-    -webkit-box-shadow: 0px 0px 22px 5px rgba(151, 4, 170, 0.75);
+    -webkit-box-shadow: 0px 0px 22px 5px rgba(35, 30, 36, 0.75);
     -moz-box-shadow: 0px 0px 22px 5px rgba(151, 4, 170, 0.75);
     box-shadow: 0px 0px 22px 5px rgba(151, 4, 170, 0.75);
     border-color: rgb(151, 4, 170);
@@ -29,6 +35,14 @@
     box-shadow: 0px 0px 4px 5px rgba(151, 4, 170, 0.40);
 }
 
+.btn-check:active+.btn-outline-primary:focus,
+.btn-check:checked+.btn-outline-primary:focus,
+.btn-outline-primary.active:focus,
+.btn-outline-primary.dropdown-toggle.show:focus,
+.btn-outline-primary:active:focus {
+    box-shadow:0 0 0 .25rem rgba(151, 4, 170,.5);
+}
+
 .form-range::-webkit-slider-thumb {
     background-color: rgb(151, 4, 170);
 }
@@ -38,7 +52,7 @@
 }
 
 .form-range::-webkit-slider-thumb:active{
-    background-color:rgb(151, 4, 170, .4)
+    background-color:rgb(151, 4, 170, .4);
 }
 
 .border {

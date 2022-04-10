@@ -53,18 +53,8 @@ const BoxShadowGenerator = () => {
 
     return (
         <Container>
-            <div className='col-md-6'>
-                <Box className='col-9 m-auto' otherStyle></Box>
-                <div className='bg-white border p-1 m-4 d-flex'>
-                    <p className='text-dark'>
-                        -webkit-{shadowMap} <br/>
-                        -moz-{shadowMap} <br/>
-                        {shadowMap}
-                    </p>
-                    <button className='btn btn-outline-primary justify-content-center ms-3 copyCss'>
-                        Copy
-                    </button>
-                </div>
+            <div className='col-md-7 d-flex'>
+                <Box className='col-9 m-auto w-25 h-25' otherStyle></Box>
             </div>
             <div className='col-md-5'>
                 <div className='row g-3 shadowPicker'>
@@ -101,8 +91,8 @@ const BoxShadowGenerator = () => {
                         <input type="range"
                                className="form-range"
                                id="horizontalLeangth"
-                               min="-200"
-                               max="200"
+                               min="-100"
+                               max="100"
                                value={boxShadow.x}
                                onChange={(event) => setBoxShadow({...boxShadow, x: event.target.value})}
                         />
@@ -112,8 +102,8 @@ const BoxShadowGenerator = () => {
                         <input type="range"
                                className="form-range"
                                id="verticalLeangth"
-                               min="-200"
-                               max="200"
+                               min="-100"
+                               max="100"
                                value={boxShadow.y}
                                onChange={(event) => setBoxShadow({...boxShadow, y: event.target.value})}
                         />
@@ -124,7 +114,7 @@ const BoxShadowGenerator = () => {
                                className="form-range"
                                id="blurRadius"
                                min="0"
-                               max="300"
+                               max="100"
                                value={boxShadow.blurRadius}
                                onChange={(event) => setBoxShadow({...boxShadow, blurRadius: event.target.value})}
                         />
@@ -135,7 +125,7 @@ const BoxShadowGenerator = () => {
                                className="form-range"
                                id="spreadRadius"
                                min="0"
-                               max="200"
+                               max="50"
                                value={boxShadow.spreadRadius}
                                onChange={(event) => setBoxShadow({...boxShadow, spreadRadius: event.target.value})}
                         />
@@ -151,6 +141,16 @@ const BoxShadowGenerator = () => {
                                value={boxShadow.opacity}
                                onChange={(event) => setBoxShadow({...boxShadow, opacity: event.target.value})}
                         />
+                    </div>
+                    <div className='bg-white border p-1 mt-4 d-flex'>
+                        <p className='text-dark m-0'>
+                            {shadowMap} <br/>
+                            -webkit-{shadowMap} <br/>
+                            -moz-{shadowMap}
+                        </p>
+                        <button className='btn btn-outline-primary justify-content-center ms-3 copyCss'>
+                            Copy
+                        </button>
                     </div>
                 </div>
             </div>
